@@ -7,17 +7,17 @@ var visualSchema = new mongoose.Schema({
   director: { type: String },
   duration: { type: String },//x min per ep or 1h y 30 min
   episodes: { type: Number },
-  favorite: { type: Boolean },
+  favorite: { type: Boolean, default: false },
   genres: [{ type: String }],
-  name: { type: String },
+  name: { type: String, required: true },
   rating: { type: String }, //PG-13 - Teens 13 or older
   realeaseDate: { type: String }, //TODO how to handle the date
-  score: { type: Number },
-  status: { type: String },
+  score: { type: Number, default: 0 },
+  status: { type: String, default: 'null' },
   studio: { type: String },
   synopsis: { type: String },
-  type: { type: String }, //movie,TV Serie..
-  reviews: [{ type: Number, ref: 'Review' }]
+  type: { type: String, required: true }, //movie,TV Serie..
+  reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }]
 });
 
 module.exports = mongoose.model('Visual', visualSchema);

@@ -44,8 +44,11 @@ app.delete(`${apiUrlBase}/users/:_id`, userController.removeUser);
 //Visuals
 app.get(`${apiUrlBase}/visuals`, visualController.getVisuals);
 app.post(`${apiUrlBase}/visuals`, visualController.addVisual);
-app.put(`${apiUrlBase}/visuals/:_id`, visualController.updateVisual);
+app.put(`${apiUrlBase}/visuals/:_id`, visualController.updateVisual);//admin update all
 app.delete(`${apiUrlBase}/visuals/:_id`, visualController.removeVisual);
+
+app.post(`${apiUrlBase}/visualstoUser/`, visualController.addVisualToUser);
+
 
 // Start server
 app.listen(3000, function() {

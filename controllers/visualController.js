@@ -39,3 +39,16 @@ exports.removeVisual = function(req,res) {
 		res.json(visual);
 	});
 }
+
+exports.addVisualToUser = function(req,res) {
+  const idVisual = req.body.idVisual;
+  const idUser = req.body.idUser;
+  console.log(idVisual)
+  console.log(idUser)
+	visualService.addVisualToUser(idVisual, idUser, (err, visual) => {
+		if(err){
+			throw err;
+		}
+		res.json(visual);
+	});
+}
